@@ -1,0 +1,31 @@
+PODS:
+  - PromiseKit (6.18.1):
+    - PromiseKit/CorePromise (= 6.18.1)
+    - PromiseKit/Foundation (= 6.18.1)
+    - PromiseKit/UIKit (= 6.18.1)
+  - PromiseKit/CoreLocation (6.18.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (6.18.1)
+  - PromiseKit/Foundation (6.18.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.18.1):
+    - PromiseKit/CorePromise
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - PromiseKit (~> 6.8)
+  - PromiseKit/CoreLocation
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - PromiseKit
+    - SnapKit
+
+SPEC CHECKSUMS:
+  PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 293f4357eade301aadf12aceddd29e5cd5b30d9f
+
+COCOAPODS: 1.11.2
