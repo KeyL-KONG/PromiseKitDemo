@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import PromiseKit
-import CoreLocation
 import SnapKit
 
 class ViewController: UIViewController {
@@ -21,6 +19,7 @@ class ViewController: UIViewController {
         
         setupViews()
         fetchImage()
+        updateImage2()
     }
     
     func setupViews() {
@@ -44,24 +43,5 @@ class ViewController: UIViewController {
             make.right.equalToSuperview().offset(-10)
         }
     }
-
-    func fetchImage() {
-        let url = URL(string: "https://lc-AosRamJS.cn-n1.lcfile.com/2a8MKW0O4uvk33n8lL8oRkf7XGbLqMPA/0bcbea56f6794765b571d18b3b3f2fd4")
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let fetchImage = URLSession.shared.dataTask(.promise, with: url!).compactMap { UIImage(data: $0.data) }
-        let fetchLocation = CLLocationManager.requestLocation().lastValue
-        
-        firstly {
-            when(fulfilled: fetchImage, fetchLocation)
-        }.done { image, location in
-            self.imageView.image = image
-            self.label.text = "\(location)"
-        }.ensure {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }.catch { error in
-            self.show(UIAlertController(title: error.localizedDescription, message: nil, preferredStyle: .alert), sender: self)
-        }
-    }
-
 }
 
