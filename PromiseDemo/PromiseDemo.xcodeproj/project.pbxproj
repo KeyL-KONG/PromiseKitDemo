@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09013FF52987E3C000B67788 /* ViewController+ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09013FF42987E3C000B67788 /* ViewController+ReadMe.swift */; };
+		09014B842988F50100B67788 /* ViewController+CommonPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09014B832988F50100B67788 /* ViewController+CommonPatterns.swift */; };
 		0901C47D2986112B00B67788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901C47C2986112B00B67788 /* AppDelegate.swift */; };
 		0901C47F2986112B00B67788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901C47E2986112B00B67788 /* SceneDelegate.swift */; };
 		0901C4812986112B00B67788 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901C4802986112B00B67788 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		05D495D23570972EFEAB1524 /* Pods_PromiseDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PromiseDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09013FF42987E3C000B67788 /* ViewController+ReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ReadMe.swift"; sourceTree = "<group>"; };
+		09014B832988F50100B67788 /* ViewController+CommonPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CommonPatterns.swift"; sourceTree = "<group>"; };
 		0901C4792986112B00B67788 /* PromiseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromiseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0901C47C2986112B00B67788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0901C47E2986112B00B67788 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				0901C4852986112C00B67788 /* Assets.xcassets */,
 				0901C4872986112C00B67788 /* LaunchScreen.storyboard */,
 				0901C48A2986112C00B67788 /* Info.plist */,
+				09014B832988F50100B67788 /* ViewController+CommonPatterns.swift */,
 			);
 			path = PromiseDemo;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				0901EF022987648D00B67788 /* ViewController+GettingStarted.swift in Sources */,
 				0901C47D2986112B00B67788 /* AppDelegate.swift in Sources */,
 				09013FF52987E3C000B67788 /* ViewController+ReadMe.swift in Sources */,
+				09014B842988F50100B67788 /* ViewController+CommonPatterns.swift in Sources */,
 				0901C47F2986112B00B67788 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
