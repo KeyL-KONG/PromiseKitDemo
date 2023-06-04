@@ -22,7 +22,7 @@ struct Foo {
 struct Bar {
     
 }
-
+/*
 class MyRestAPI {
     func user() -> Promise<User> {
         return firstly {
@@ -71,15 +71,15 @@ class MyRestAPI {
     }
     
     func failingChains() {
-        firstly {
-            foo()
-        }.then { baz in
-            self.bar(baz)
-        }.then { result in
-            try doOtherThings()
-        }.catch { error in
-            // if doOtherThing() throws, we end up here
-        }
+//        firstly {
+//            foo()
+//        }.then { baz in
+//            self.bar(baz)
+//        }.then { result in
+//            try doOtherThings()
+//        }.catch { error in
+//            // if doOtherThing() throws, we end up here
+//        }
     }
 }
 
@@ -117,9 +117,9 @@ extension ViewController {
     func timeout() {
         let fetches: [Promise<Bool>] = makeFetches()
         let timeout = after(seconds: 4)
-        race(when(fulfilled: fetches).asVoid(), timeout).then {
-            
-        }
+//        race(when(fulfilled: fetches).asVoid(), timeout).then {
+//
+//        }
     }
     
     func foo() -> (Promise<Void>, cancel: () -> Void) {
@@ -227,3 +227,4 @@ class PMKCLLocationManagerProxy: NSObject, CLLocationManagerDelegate {
         seal.reject(error)
     }
 }
+*/

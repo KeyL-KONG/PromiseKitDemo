@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         setupViews()
         fetchImage()
         updateImage2()
+        
+        createExample()
+        chainOperationExample()
+        transformOperation()
+        compositeOperation()
+        errorOperation()
     }
     
     func setupViews() {
