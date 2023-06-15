@@ -1,0 +1,52 @@
+@startuml
+
+enum Result<T> {
+    case fulfilled(T)
+    case rejected(Error)
+}
+
+interface Thenable {
++ associatedtype T
++ result: Result<T>?
+
++ pipe(@escaping(Result<T>) -> Void)
+
++ then<U: Thenable>(DispatchQueue, DispatchWorkItemFlags, (T)->U) -> Promise<U.T>
++ map<U>(DispatchQueue, DispatchWorkItemFlags, (T)->U) -> Promise<U>
++ compactMap<U>(DispatchQueue, DispatchWorkItemFlags, (T)->U) -> Promise<U>
++ done(DispatchQueue, DispatchWorkItemFlags, (T)->Void) -> Promise<Void>
++ get(DispatchQueue, DispatchWorkItemFlags, (T)->Void) -> Promise<T>
++ tap(DispatchQueue, DispatchWorkItemFlags, Result<T>->Void) -> Promise<T>
++ asVoid() -> Promise<Void>
+
++ error: Error?
++ isPending: Bool 
++ isResolved: Bool
++ isFulfilled: Bool
++ isRejected: Bool
++ value: T?
+}
+
+Thenable "1"-->"1" Result
+
+class PMKFinalizer {
++ pending: Guarantee<Void>
++ finally(DispatchQueue, DispatchWorkItemFlags, ()->Void)
+}
+
+enum CatchPolicy {
+    case allErrors
+    case allErrorsExceptCancellatioin
+}
+
+interface CatchMixin {
++ catch(DispatchQueue, DispatchWorkItemFlags, CatchPolicy, (Error)->Void) -> PMKFinalizer
++ recover<U: Thenable>(DispatchQueue, DispatchWorkItemFlags, CatchPolicy, (Error)->U) -> Promise<T>
++ ensure(DispatchQueue, DispatchWorkItemFlags, ()->Void) -> Promise<T>
+}
+
+Thenable <|.. CatchMixin
+CatchMixin ..> PMKFinalizer : using
+CatchMixin ..> CatchPolicy : using
+
+@enduml
