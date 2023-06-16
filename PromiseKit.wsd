@@ -49,4 +49,69 @@ Thenable <|.. CatchMixin
 CatchMixin ..> PMKFinalizer : using
 CatchMixin ..> CatchPolicy : using
 
+class Handlers<R> {
+    + bodies: [R->Void]
+    + append(R->Void) 
+}
+
+enum Sealant<R> {
+    case pending(Handlers<R>)
+    case resolved(R)
+}
+
+Sealant ..> Handlers : using
+
+class Box<T> {
+    + inspect() -> Sealant<T>
+    + inspect(Sealant<T>->Void)
+    + seal(T)
+}
+
+class SealedBox<T> {
+    + value: T 
+    + init(T)
+    + inspect() -> Sealant<T>
+}
+
+class EmptyBox<T> {
+    - sealant: Sealant<T>
+    - barrier: DispatchQueue
+
+    + seal(T)
+    + inspect()
+    + inspect(Sealant<T>->Void)
+}
+
+Box <|.. SealedBox
+Box <|.. EmptyBox
+Box ..> Sealant: using 
+
+class Resolver<T> {
+    + box: Box<Result<T>>
+    + init(Box<Result<T>>)
+
+    + fulfill(T)
+    + reject(Error)
+    + resolve(Result<T>)
+    + resolve(T?, Error?)
+}
+
+class Promise<T> {
+    + box: Box<Result<T>>
+    + result: Result<T>?
+
+    + init(SealedBox<Result<T>>)
+    + init(Error)
+    + init(Resolver<T>->Void)
+    + value(T) -> Promise<T>
+    + pending() -> (Promise<T>, Resolver<T>)
+    + pipe(Result<T>->Void)
+    + wait() -> T
+}
+
+Thenable <|.. Promise
+CatchMixin <|.. Promise
+Promise "1"-->"1" Box
+Promise ..> Resolver : using
+
 @enduml
